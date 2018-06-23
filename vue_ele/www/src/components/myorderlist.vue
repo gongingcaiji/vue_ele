@@ -153,3 +153,17 @@
 .my-order-item-btn span.my-order-item-red a,.my-order-item-btn span.my-order-item-jindu a{ color:#fa4b28;}
 .pos-r{ position:absolute; right:0.5rem; top:0.35rem; }
 </style>
+<script>
+  //   mapGetters,mapMutations  自带的
+  // import Vuex from 'vuex' ;
+  // console.log(Vuex);
+  
+  import {mapGetters,mapMutations} from "vuex";
+  // computed:{
+  //   ...mapGetters(["favou"])
+  // }
+
+
+
+
+</script>

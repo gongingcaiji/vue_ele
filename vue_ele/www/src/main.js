@@ -1,8 +1,9 @@
-import Vue from 'vue'
-import App from './App'
+import Vue from 'vue';
+import App from './App';
+import store from './store';
 
 Vue.config.productionTip = false
-import './assets/css/base.css'
+import './assets/css/base.css';
 
 
 import router from './router';
@@ -15,5 +16,5 @@ import axios from 'axios';
 new Vue({
   el: '#app',
   render: h => h(App),
-  router
+  router,store,
 })
