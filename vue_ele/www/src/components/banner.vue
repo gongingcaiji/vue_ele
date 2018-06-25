@@ -17,14 +17,14 @@
 <script>
 export default {
   mounted(){
-      TouchSlide({
-          slideCell:"#index-banner",
-          titCell:".banner-tit li",//开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
-          mainCell:".banner-pics-list",
-          effect:"left",
-          autoPlay:true,//自动播放
-          //autoPage:true, //自动分页
-      })
+      // TouchSlide({
+      //     slideCell:"#index-banner",
+      //     titCell:".banner-tit li",//开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+      //     mainCell:".banner-pics-list",
+      //     effect:"left",
+      //     autoPlay:true,//自动播放
+      //     //autoPage:true, //自动分页
+      // })
   }
 }
 </script>

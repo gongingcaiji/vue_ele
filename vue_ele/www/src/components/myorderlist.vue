@@ -158,7 +158,7 @@
   // import Vuex from 'vuex' ;
   // console.log(Vuex);
   
-  import {mapGetters,mapMutations} from "vuex";
+  // import {mapGetters,mapMutations} from "vuex";
   // computed:{
   //   ...mapGetters(["favou"])
   // }

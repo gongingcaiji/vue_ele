@@ -7,27 +7,29 @@
     <!-- <form method="post" class="login-form" action="" id="login" autocomplete="off"> -->
         <div class="registered">
         <div class="field">
-            <input id='registername' type="text"  class="username" placeholder="请输入账号" ref='aa'>
+            <input id='registername' type="text"  class="username" placeholder="请输入账号" ref='aa' v-model="username">
         </div>
         <div class="field">
-            <input type="text" name="yzm" id="yzm" class="yzm" placeholder="请输入密码"  maxlength="" ref='bb'>
+            <input type="text" name="yzm" id="yzm" class="yzm" placeholder="请输入密码"  maxlength="" ref='bb' v-model="password">
             <!-- <a href="#" class="fsyzm">发送验证码</a> -->
         </div>
         </div>
-        <div class="next-step">
-        <button class="submit-btn" id='reg' @click="regist">{{register}}</button>
+        <div class="next-step" @click="regclick">
+        <button class="submit-btn" id='reg' >{{register}}</button>
         </div>
     <!-- </form> -->
 </div>
 </template>
 <script>
+import {mapGetters,mapMutations,mapActions} from 'vuex';
+import Ajax from 'yiajax'   //封装的
 // 引入
 export default {
     data(){
         return{
             register:'注册',
-            username:'123',
-            password:'123',
+            username:'',
+            password:'',
         }
     },
     mounted(){
@@ -35,6 +37,21 @@ export default {
         // console.log(this.$route);//查看路径
     },
     methods:{
+        regclick:function(){
+            this.$store.dispatch('regSignin')
+            if(this.username == '' && this.password == ''){
+                alert('用户或者密码不能为空')
+            }else{
+                console.log("这个是inputvalue",this.username);
+                console.log("这个是getregisterZH",this.getregisterZH);
+                
+                   if(this.username == this.getregisterZH){
+                         alert('用户已存在')
+                    }else{
+                        alert('该用户可以注册')
+                    }
+            }
+        }
         // regist:function () {
         //     console.log(1111222);
 
@@ -88,6 +105,15 @@ export default {
             // )
             
         // }
+
+
+
+
+
+
+
+
+
     }
 
 

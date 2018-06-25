@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var registerRouter = require('./routes/register');
+var LoginRouter = require('./routes/login');
 var app = express();
 
 //mongodb数据库
@@ -32,6 +33,7 @@ app.use('/', indexRouter);
 app.use('/home', home);
 app.use('/users', usersRouter);
 app.use('/register', registerRouter);
+app.use('/login', LoginRouter);
 
 
 

@@ -4,44 +4,53 @@
     <a href="javascript:history.go(-1)" target=_self class="back">返回</a>
     <h1>登录</h1>
     </header>
-    <form method="post" class="login-form" action="" id="login" autocomplete="off">
+    <!-- <form method="post" class="login-form" action="" id="login" autocomplete="off"> -->
         <div class="registered">
         <div class="field">
-            <input id="username" type="text" name="username" class="username" placeholder="请输入账号" >
+            <input id='loginname' type="text"  class="username" placeholder="请输入账号" ref='aa' v-model="inputvalue">
         </div>
         <div class="field">
-            <input type="text" name="yzm" id="yzm" class="yzm" placeholder="请输入密码"  maxlength="">
+            <input type="text" name="yzm" id="yzm" class="yzm" placeholder="请输入密码"  maxlength="" ref='bb' v-model="inputpass">
             <!-- <a href="#" class="fsyzm">发送验证码</a> -->
         </div>
         </div>
-        <div class="next-step">
-        <button  class="submit-btn">{{login}}</button>
+        <div class="next-step" @click="loginclick">
+            <button class="submit-btn" id='log' >{{logingo}}</button>
         </div>
-    </form>
-       
+    <!-- </form> -->
 </div>
 </template>
 <script>
-export default {
-    data(){
-        return{
-            login:'登录'
-        }
-    },
-    created(){
-            console.log(this.$router);
-
-    },
-    methods:{
-        login(){
-           alert('登录')
-            
+    import {mapGetters,mapMutations, mapActions} from 'vuex';
+    import ajax from 'yiajax';
+    export default {
+        data(){
+            return{
+                    logingo : '登录',
+                    inputvalue:'',
+                    inputpass:'',
+                }
         },
-        regist:()=>{
-            alert('注册成功')
-        }
+        methods:{
+            loginclick:function(){
+                this.$store.dispatch('loginDL')
+                if(this.inputvalue == '' && this.inputpass == ''){
+                    alert('用户或者密码不能为空')
+                }else {
+                    
+                     if(this.inputvalue == this.registerZH){
+                         alert('登录成功')
+                    }else{
+                        alert('用户或密码错误')
+                    }
+                }
+               
+                
+            }
+        },
+        computed:mapGetters(['getloginZH','getloginMM']),
+
     }
-}
 </script>
 <style>
 .header-bot-item{ height:1.75rem; line-height:1.75rem; background-color:#fa4b28; color:#fff; width:100%; display: -moz-box; display: -webkit-box; display: box; -ms-flex-align: center; -webkit-align-items: center; -webkit-box-align: center; align-items: center;   }
